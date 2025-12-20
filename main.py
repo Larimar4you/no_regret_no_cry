@@ -1,16 +1,22 @@
 import json
 from src.model import build_model
-from src.config import MAX_CALORIES
-from pulp import LpStatus, value
+from src.solver import solve_model
 
-with open("data/products.json") as f:
-    products = json.load(f)
 
-model, vars = build_model(products, MAX_CALORIES)
-model.solve()
+def main():
+    with open("data/products.json", "r") as file:
+        products = json.load(file)
 
-print("Статус:", LpStatus[model.status])
-for v in vars.values():
-    print(v.name, "=", v.varValue)
+    model, portions = build_model(products)
+    result = solve_model(model, portions, products)
 
-print("Всего ккал:", value(model.objective))
+    print(f"Status: {result['status']}")
+    print("Selected products:")
+    for product, amount in result["portions"].items():
+        print(f"  {product}: {amount}")
+
+    print(f"Total calories: {result['total_calories']} kcal")
+
+
+if __name__ == "__main__":
+    main()

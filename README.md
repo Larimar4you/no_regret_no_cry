@@ -1,28 +1,30 @@
 # 🥗 NO_REGRET_NO_CRY/Food Optimizer (PuLP)
 
-Daily meal optimizer that takes into account:
+Optimizes daily meals based on available products to reach a target
+calorie intake (~1600 kcal) with flexible under- and over-consumption.
 
-- a maximum calorie limit
-- mandatory dishes (for example, soup)
-- integer portion sizes
+## Features:
 
-## Tech
+- Target calories with soft limits
+- Mandatory products (e.g., soup)
+- Integer portion sizes
+- Optimizes from available fridge products
+
+## Tech:
 
 - Python
-- PuLP (Linear Programming)
+- PuLP (Mixed Integer Linear Programming)
 
 ## How to use:
 
 pip install -r requirements.txt
 python main.py
 
-## Settings
+## SettingsConfiguration
 
-- calorie limits: src/config.py
-- food products and calorie values: data/products.json
+- Calorie target & tolerance: src/config.py
+- Food products & calories: data/products.json
 
 ## My Idea:
 
-The project demonstrates an approach to resource optimization
-by managing calorie limits, food products, and their calorie values.
-Although the maximum calorie limit is set to 1600 kcal, the model minimizes total calorie intake. Since only soup is mandatory, the optimizer selects the minimum feasible solution that satisfies all constraints.
+Demonstrates resource optimization in meal planning, selecting optimal portions of available products while minimizing deviation from a target calorie goal.
