@@ -1,0 +1,32 @@
+{
+  "milk": {
+    "calories": 55.0,
+    "protein": 3.39,
+    "fat": 2.12,
+    "carbs": 5.08
+  },
+  "egg": {
+    "calories": 513.0,
+    "protein": 6.41,
+    "fat": 28.85,
+    "carbs": 57.69
+  },
+  "broccoli": {
+    "calories": 24.0,
+    "protein": 2.35,
+    "fat": 0.0,
+    "carbs": 4.71
+  },
+  "chicken": {
+    "calories": 107.0,
+    "protein": 21.43,
+    "fat": 1.79,
+    "carbs": 0.0
+  },
+  "cheese": {
+    "calories": 331.0,
+    "protein": 21.13,
+    "fat": 24.65,
+    "carbs": 2.46
+  }
+}

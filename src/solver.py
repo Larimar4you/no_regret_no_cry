@@ -1,23 +1,20 @@
-import pulp
+from pulp import LpStatus, PULP_CBC_CMD
 
 
-def solve_model(model: pulp.LpProblem, portions: dict, products: dict) -> dict:
-    """
-    Solves the model and returns the solution.
-    """
+def solve_model(model, portions, products):
+    # Отключаем весь вывод CBC solver
+    solver = PULP_CBC_CMD(msg=False)
+    model.solve(solver)
 
-    model.solve(pulp.PULP_CBC_CMD(msg=True))
-
-    solution = {
-        name: variable.value()
-        for name, variable in portions.items()
-        if variable.value() and variable.value() > 0
+    result = {
+        "status": LpStatus[model.status],
+        "portions": {name: round(portions[name].varValue, 1) for name in portions},
+        "total_calories": round(
+            sum(
+                products[name]["calories"] * portions[name].varValue
+                for name in portions
+            ),
+            1,
+        ),
     }
-
-    total_calories = sum(products[name] * solution[name] for name in solution)
-
-    return {
-        "status": pulp.LpStatus[model.status],
-        "portions": solution,
-        "total_calories": total_calories,
-    }
+    return result
