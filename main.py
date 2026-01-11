@@ -1,5 +1,5 @@
 from src.nutrition import get_product_nutrition
-from src.model import build_model
+from src.build_model import build_model
 from src.solver import solve_model
 
 

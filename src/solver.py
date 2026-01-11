@@ -2,7 +2,6 @@ from pulp import LpStatus, PULP_CBC_CMD
 
 
 def solve_model(model, portions, products):
-    # Отключаем весь вывод CBC solver
     solver = PULP_CBC_CMD(msg=False)
     model.solve(solver)
 
