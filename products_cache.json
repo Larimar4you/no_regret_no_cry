@@ -28,5 +28,23 @@
     "protein": 21.13,
     "fat": 24.65,
     "carbs": 2.46
+  },
+  "dread": {
+    "calories": 564.0,
+    "protein": 24.69,
+    "fat": 38.8,
+    "carbs": 28.22
+  },
+  "molk": {
+    "calories": 51.0,
+    "protein": 8.45,
+    "fat": 1.27,
+    "carbs": 1.41
+  },
+  "potato": {
+    "calories": 171,
+    "protein": 3.89,
+    "fat": 11.3,
+    "carbs": 13.5
   }
 }
